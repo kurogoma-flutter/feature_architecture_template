@@ -45,6 +45,9 @@ flutter:
     - family: Zen_Maru_Gothic
       fonts:
         - asset: assets/fonts/Zen_Maru_Gothic/Zen_Maru_Gothic-Regular.ttf
+    - family: LINE_Seed_JP
+      fonts:
+        - asset: assets/fonts/LINE_Seed_JP/OTF/LINESeedJP_A_OTF_Rg.otf
 
 flutter_icons:
   android: true

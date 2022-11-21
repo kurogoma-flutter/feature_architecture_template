@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.transparent,
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
-        fontFamily: 'Zen_Maru_Gothic',
+        fontFamily: 'LINE_Seed_JP',
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
