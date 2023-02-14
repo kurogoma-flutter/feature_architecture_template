@@ -1,7 +1,8 @@
 // ボトムナビゲーションを非表示にしたいルートパスを指定
 
-import 'package:feature_architecture_template/features/home/home_page.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../features/home/home_page.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: true,

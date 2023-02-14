@@ -10,7 +10,7 @@ class SlideTransitionBuilder extends PageTransitionsBuilder {
     Animation<double> secondaryAnimation,
     Widget child,
   ) {
-    const begin = Offset(1.0, 0.0);
+    const begin = Offset(1, 0);
     const end = Offset.zero;
     const curve = Curves.ease;
     final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));

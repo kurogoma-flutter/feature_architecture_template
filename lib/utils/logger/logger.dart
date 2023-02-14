@@ -1,5 +1,5 @@
-import 'package:logger/logger.dart';
 import 'package:intl/intl.dart';
+import 'package:logger/logger.dart';
 
 final logger = Logger(
   printer: CustomLogPrinter(),
@@ -21,6 +21,7 @@ class CustomLogPrinter extends LogPrinter {
       msg = message.toString();
     }
     return [
+      // ignore: no_adjacent_strings_in_list
       '[${event.level.name.toUpperCase()}] '
           '${DateFormat('HH:mm:ss.SSS').format(DateTime.now())}: '
           '$msg'
