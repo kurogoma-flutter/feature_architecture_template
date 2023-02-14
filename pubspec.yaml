@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  hooks_riverpod: ^2.0.2
+  hooks_riverpod: ^2.2.0
   go_router: ^5.0.5
   json_annotation: ^4.7.0
   freezed_annotation: ^2.1.0
@@ -41,13 +41,13 @@ flutter:
         - asset: assets/fonts/Yusei_Magic/YuseiMagic-Regular.ttf
     - family: Noto_Sans_JP
       fonts:
-        - asset: assets/fonts/Noto_Sans_JP/Noto_Sans_JP-Regular.otf
+        - asset: assets/fonts/Noto_Sans_JP/NotoSansJP-Regular.otf
     - family: Zen_Maru_Gothic
       fonts:
-        - asset: assets/fonts/Zen_Maru_Gothic/Zen_Maru_Gothic-Regular.ttf
+        - asset: assets/fonts/Zen_Maru_Gothic/ZenMaruGothic-Regular.ttf
     - family: LINE_Seed_JP
       fonts:
-        - asset: assets/fonts/LINE_Seed_JP/OTF/LINESeedJP_A_OTF_Rg.otf
+        - asset: assets/fonts/LINE_Seed_JP/App/OTF/LINESeedJP_A_OTF_Rg.otf
 
 flutter_icons:
   android: true

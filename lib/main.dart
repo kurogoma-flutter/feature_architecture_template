@@ -8,5 +8,7 @@ Future<void> main() async {
   // アプリ実行前の初期化処理
   await Initialize().init();
   // アプリ実行
-  runApp(const ProviderScope(child: Application()));
+  runApp(const ProviderScope(
+    child: Application(),
+  ));
 }

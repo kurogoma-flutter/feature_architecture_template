@@ -4,19 +4,28 @@
         {
             "name": "feature_architecture_template",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "args": [
+                "FLAVOR=develop",
+            ]
         },
         {
-            "name": "feature_architecture_template (profile mode)",
+            "name": "feature_architecture_template (staging mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": [
+                "FLAVOR=staging",
+            ]
         },
         {
-            "name": "feature_architecture_template (release mode)",
+            "name": "feature_architecture_template (production mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "FLAVOR=production",
+            ]
         }
     ]
 }
