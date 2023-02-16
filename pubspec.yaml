@@ -8,6 +8,8 @@ environment:
   sdk: ">=2.18.2 <3.0.0"
 dependencies:
   build_runner: ^2.2.1
+  collection: ^1.17.0
+  dio: ^5.0.0
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.2.10+1
