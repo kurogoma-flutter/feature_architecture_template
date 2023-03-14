@@ -12,7 +12,7 @@ dependencies:
   dio: ^5.0.0
   flutter:
     sdk: flutter
-  flutter_native_splash: ^2.2.10+1
+  flutter_native_splash: ^2.2.16
   freezed: ^2.1.1
   freezed_annotation: ^2.1.0
   go_router: ^5.0.5
@@ -56,3 +56,7 @@ flutter_icons:
   android: true
   ios: true
   image_path: "assets/images/icon.png"
+
+flutter_native_splash:
+  image: "assets/images/kurogoma-splash.png"
+  color: "D8D8D8"
