@@ -1,0 +1,211 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: お気に入り
+  description: お気に入り取得/登録
+servers:
+  - url: http://localhost:8080/
+
+paths:
+  /favorite:
+    post:
+      summary: お気に入り一覧取得
+      operationId: favorites
+      tags:
+        - mylist
+      parameters:
+        - $ref: "#/components/parameters/token"
+        - $ref: "#/components/parameters/userId"
+        - $ref: "#/components/parameters/traceId"
+      responses:
+        '200':
+          # description: 正常応答
+          $ref: "#/components/responses/MylistFavoriteResponseBody"
+        '400':
+          description: 不正リクエスト
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MylistErrorResponseBody"
+              examples:
+                response1:
+                  summary: リクエストパラメータエラー
+                  value:
+                    result: "1"
+                    result_code: "XXXXX"
+                    message: "request parameter error."
+                    trace_id: "9a312fab-9155-4611-e03b-7b2a1b54b58b"
+
+        '500':
+          description: 内部サーバエラー
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MylistErrorResponseBody"
+              examples:
+                response1:
+                  summary: お気に入りTBLからの対象データの取得失敗
+                  value:
+                    result: "1"
+                    result_code: "MLSE000002"
+                    message: "database communication error."
+                    trace_id: "9a312fab-9155-4611-e03b-7b2a1b54b58b"
+
+                response2:
+                  summary: 予期しない例外発生
+                  value:
+                    result: "1"
+                    result_code: "MLSE000001"
+                    message: "system error."
+                    trace_id: "9a312fab-9155-4611-e03b-7b2a1b54b58b"
+
+
+components:
+  requestBodies:
+    MylistFavoriteUpdateRequestBody:
+      description: お気に入りコンテンツ登録のリクエスト情報
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/MylistFavoriteUpdateRequestBody"
+
+  responses:
+    MylistFavoriteResponseBody:
+      description: お気に入りコンテンツ取得のレスポンス情報
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/MylistFavoriteResponseBody"
+
+  parameters:
+    token:
+      description: セッショントークン
+      name: token
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 32
+        maxLength: 32
+        pattern: "^[0-9a-fA-F]*$"
+        example: "artbwsvthfg"
+    userId:
+      description: プロフィールID(nginxが設定する※クライアントではHTTPヘッダにセッションIDを設定）
+      name: userId
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 32
+        maxLength: 32
+        pattern: "^[0-9a-fA-F]*$"
+        example: "213cd3b9250d4fd8b6f06142b2479bdd"
+    traceId:
+      description: トレースID
+      name: traceId
+      in: header
+      required: false
+      schema:
+        type: string
+        maxLength: 64
+        pattern: "^[0-9a-zA-Z-]*$"
+        example: "213cd3b-9250d4f-d8b6f06142b2479bdd"
+
+  schemas:
+    MylistFavoriteUpdateRequestBody:
+      description: お気に入り登録のリクエストのボディ部
+      type: object
+      required:
+        - group_list
+      properties:
+        group_list:
+          description: お気に入りコンテンツグループ情報のリスト
+          type: array
+          items:
+            $ref: "#/components/schemas/MylistFavoriteContentsGroup"
+
+    MylistFavoriteResponseBody:
+      description: お気に入り取得のレスポンスのボディ部
+      type: object
+      required:
+        - result
+        - group_list
+      properties:
+        result:
+          description: 処理結果(常に"0")
+          type: string
+          example: "0"
+        group_list:
+          description: お気に入りコンテンツグループのリスト
+          type: array
+          items:
+            $ref: "#/components/schemas/MylistFavoriteContentsGroup"
+
+    MylistFavoriteContentsGroup:
+      description: お気に入りコンテンツグループ情報
+      type: object
+      required:
+        - name
+        - contents_list
+      properties:
+        name:
+          description: グループ名
+          type: string
+          pattern: ".+"
+          example: "favaorite1"
+        contents_list:
+          description: お気に入りコンテンツのリスト
+          type: array
+          items:
+            $ref: "#/components/schemas/MylistFavoriteContentsItem"
+
+    MylistFavoriteContentsItem:
+      description: お気に入りコンテンツ
+      type: object
+      required:
+        - crid
+        - title
+        - r_value
+      properties:
+        crid:
+          description: コンテンツID
+          type: string
+          pattern: ".+"
+          example: "000000000000001"
+        title:
+          description: コンテンツタイトル
+          type: string
+          pattern: ".+"
+          example: "タイトル"
+        r_value:
+          description: 視聴年齢制限値
+          type: string
+          example: "18"
+  
+
+    MylistErrorResponseBody:
+      description: エラー時のレスポンス
+      type: object
+      required:
+        - result
+        - result_code
+        - message
+        - trace_id
+      properties:
+        result:
+          description: 結果コード
+          type: string
+          example: "1"
+        result_code:
+          description: 完了コード
+          type: string
+          example: "MLSW000001"
+        message:
+          description: メッセージ
+          type: string
+          example: "Invalid Parameter."
+        trace_id:
+          description: トレースID
+          type: string
+          example: "95dd9763-2da7-4975-8a05-755251d09212"
