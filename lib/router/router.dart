@@ -2,7 +2,7 @@
 
 import 'package:go_router/go_router.dart';
 
-import '../../features/home/home_page.dart';
+import '../features/home/home_page.dart';
 
 final router = GoRouter(
   debugLogDiagnostics: true,

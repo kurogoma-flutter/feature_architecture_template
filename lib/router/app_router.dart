@@ -23,6 +23,16 @@ class AppRouter {
     context.goNamed(name, queryParams: params, extra: extra);
   }
 
+  /// pushで[name]に遷移
+  void pushNamed(
+    BuildContext context,
+    String name, {
+    Map<String, String> params = const <String, String>{},
+    Object? extra,
+  }) {
+    context.pushNamed(name, queryParams: params, extra: extra);
+  }
+
   /// 画面をpop
   void pop(BuildContext context) => context.pop();
 
@@ -42,5 +52,10 @@ class AppRouter {
         mode: LaunchMode.externalApplication,
       );
     }
+  }
+
+  // ボトムシートを閉じる
+  void closeBottomSheet(BuildContext context) {
+    Navigator.of(context).pop();
   }
 }

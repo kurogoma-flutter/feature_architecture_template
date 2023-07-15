@@ -1,26 +1,31 @@
 import 'package:intl/intl.dart';
 
 extension DateExtension on DateTime {
+  // 今日の日付を取得
   static DateTime nowStartAt({int addDay = 0}) {
     final now = DateTime.now();
     return DateTime(now.year, now.month, now.day + addDay);
   }
 
+  // 日付をフォーマット
   String format({
     String pattern = 'yyyy/MM/dd HH:mm:ss',
     String locale = 'ja_JP',
   }) =>
       DateFormat(pattern, locale).format(this);
 
+  // UTCをJSTに変換
   DateTime toJst() {
     return toUtc().add(const Duration(hours: 9));
   }
 
+  // 年月日のみの日付を取得
   DateTime toYearMonthDay() {
     final date = DateTime(year, month, day);
     return date.add(date.timeZoneOffset).toUtc();
   }
 
+  // タイムラインで表示する時刻ラベルを取得
   String get timelineLabel {
     final now = DateTime.now().toUtc();
     final self = toUtc();
@@ -50,6 +55,7 @@ extension DateExtension on DateTime {
     return d1.toUtc().isAfter(d2.toUtc());
   }
 
+  // 指定した時刻で日付を設定
   DateTime setHour(
     int hour, [
     int? minute,
@@ -68,39 +74,42 @@ extension DateExtension on DateTime {
         microsecond ?? this.microsecond,
       );
 
+  // DateTime オブジェクトのクローンを取得
   DateTime get clone => DateTime.fromMicrosecondsSinceEpoch(
         microsecondsSinceEpoch,
         isUtc: isUtc,
       );
 
+  // 日の始まり（0時）を取得
   DateTime get startOfDay => clone.setHour(0, 0, 0, 0, 0);
 
+  // 日の終わり（23時59分59秒）を取得
   DateTime get endOfDay => clone.setHour(23, 59, 59, 59, 59);
 
   /// https://stackoverflow.com/questions/62872349/dart-flutter-get-first-datetime-of-this-week
-  /// 週始まり（月）
+  /// 週始まり（月）を取得
   DateTime get startOfWeek => subtract(Duration(days: weekday - 1)).startOfDay;
 
-  /// 週終わり（日）
+  /// 週終わり（日）を取得
   DateTime get endOfWeek =>
       add(Duration(days: DateTime.daysPerWeek - weekday)).startOfDay;
 
-  /// 月始まり
+  /// 月始まりを取得
   DateTime get startOfMonth => DateTime(year, month).startOfDay;
 
-  /// 月終わり
+  /// 月終わりを取得
   DateTime get endOfMonth => DateTime(year, month + 1, 0).startOfDay;
 
-  /// 次の月
+  /// 次の月を取得
   DateTime get nextMonth => DateTime(year, month + 1);
 
-  /// 前の日
+  /// 前の日を取得
   DateTime get beforeDay => DateTime(year, month, day - 1).startOfDay;
 
-  /// 次の日
+  /// 次の日を取得
   DateTime get nextDay => DateTime(year, month, day + 1).startOfDay;
 
-  /// 日始まり
+  /// 日の始まりを取得
   DateTime startAt({int addDay = 0}) => DateTime(year, month, day + addDay);
 
   /// 同じ日付か確認

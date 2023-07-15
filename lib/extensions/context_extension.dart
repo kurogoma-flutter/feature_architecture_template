@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../gen/colors.gen.dart';
-
 extension ContextExtension on BuildContext {
   bool get isDark => MediaQuery.of(this).platformBrightness == Brightness.dark;
   double get deviceWidth => MediaQuery.of(this).size.width;
@@ -17,8 +15,8 @@ extension ContextExtension on BuildContext {
   bool get isIphoneMiniSize =>
       deviceWidth == 320 && deviceHeight == 568; // iPhone SE 1st
   double get appBarHeight => MediaQuery.of(this).padding.top + kToolbarHeight;
-
   Color get scaffoldBackgroundColor => Theme.of(this).scaffoldBackgroundColor;
+  bool get isShowKeyboard => MediaQuery.of(this).viewInsets.bottom > 0;
 
   void hideKeyboard() {
     // https://github.com/flutter/flutter/issues/54277#issuecomment-640998757
@@ -30,7 +28,7 @@ extension ContextExtension on BuildContext {
 
   void showSnackBar(
     String text, {
-    Color backgroundColor = ColorName.primary,
+    Color backgroundColor = Colors.black87,
     Duration duration = const Duration(milliseconds: 1500),
     VoidCallback? onTap,
     String closeLabel = '閉じる',
