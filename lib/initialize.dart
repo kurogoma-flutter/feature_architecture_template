@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'core/data/isar/isar_instance.dart';
+import 'core/isar/isar_instance.dart';
 
 class Initialize {
   Future<void> init() async {
