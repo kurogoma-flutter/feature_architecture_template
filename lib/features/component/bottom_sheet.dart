@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../router/app_router.dart';
+import '../../core/router/app_router.dart';
 
 ///
 /// 共通ボトムシートWidget
