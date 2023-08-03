@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 ///
 class ToggleSwitchDefault extends StatefulWidget {
   const ToggleSwitchDefault({
-    Key? key,
     required this.status,
     required this.onChanged,
+    Key? key,
   }) : super(key: key);
 
   /// チェック状態
@@ -27,10 +27,10 @@ class _ToggleSwitchDefaultState extends State<ToggleSwitchDefault>
   bool isSwitched = false;
 
   /// スイッチの高さ
-  static const double height = 32.0;
+  static const double height = 32;
 
   /// スイッチの幅
-  static const double width = 56.0;
+  static const double width = 56;
 
   @override
   void initState() {
@@ -68,15 +68,15 @@ class _ToggleSwitchDefaultState extends State<ToggleSwitchDefault>
                 color: const Color(0xFFAEAEAE),
               ),
         child: Padding(
-          padding: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(2),
           child: AnimatedAlign(
             alignment:
                 isSwitched ? Alignment.centerRight : Alignment.centerLeft,
             curve: Curves.easeOut,
             duration: const Duration(milliseconds: 300),
             child: Container(
-              width: 28.0,
-              height: 28.0,
+              width: 28,
+              height: 28,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Color(0xFFFFFFFF),

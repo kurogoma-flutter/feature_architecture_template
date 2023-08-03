@@ -12,9 +12,9 @@ class PrimaryBottomSheet extends StatelessWidget {
   /// [titleText] :タイトルのテキスト
   /// [body] :ボディ部分のwidget
   const PrimaryBottomSheet({
+    required this.body,
     Key? key,
     this.titleText = '',
-    required this.body,
   }) : super(key: key);
 
   /// タイトルのテキスト

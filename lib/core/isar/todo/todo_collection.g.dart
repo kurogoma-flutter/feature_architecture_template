@@ -88,11 +88,12 @@ void _todoSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeDateTime(offsets[0], object.createdAt);
-  writer.writeString(offsets[1], object.description);
-  writer.writeBool(offsets[2], object.isCompleted);
-  writer.writeString(offsets[3], object.title);
-  writer.writeDateTime(offsets[4], object.updatedAt);
+  writer
+    ..writeDateTime(offsets[0], object.createdAt)
+    ..writeString(offsets[1], object.description)
+    ..writeBool(offsets[2], object.isCompleted)
+    ..writeString(offsets[3], object.title)
+    ..writeDateTime(offsets[4], object.updatedAt);
 }
 
 Todo _todoDeserialize(
@@ -101,13 +102,13 @@ Todo _todoDeserialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = Todo();
-  object.createdAt = reader.readDateTime(offsets[0]);
-  object.description = reader.readString(offsets[1]);
-  object.id = id;
-  object.isCompleted = reader.readBool(offsets[2]);
-  object.title = reader.readString(offsets[3]);
-  object.updatedAt = reader.readDateTime(offsets[4]);
+  final object = Todo()
+    ..createdAt = reader.readDateTime(offsets[0])
+    ..description = reader.readString(offsets[1])
+    ..id = id
+    ..isCompleted = reader.readBool(offsets[2])
+    ..title = reader.readString(offsets[3])
+    ..updatedAt = reader.readDateTime(offsets[4]);
   return object;
 }
 

@@ -20,6 +20,7 @@ class CustomApiException extends ServerError {
       final data = response.data;
       final errorCode = ServerErrorCodeFactory.create(
         CustomApiErrorCode.fromResponseCode,
+        // ignore: avoid_dynamic_calls
         data['result_code'],
       );
 

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class BaseScaffold extends StatelessWidget {
   const BaseScaffold({
-    super.key,
     required this.child,
+    super.key,
     this.isShowAppBar = true,
     this.appBarTitle = '',
     this.onPressedFab,

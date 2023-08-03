@@ -11,8 +11,8 @@ import '../../../core/router/app_router.dart';
 ///
 class PrimaryDialog extends StatelessWidget {
   const PrimaryDialog({
-    Key? key,
     required this.child,
+    Key? key,
     this.considerStatusBar = true,
     this.considerNavigationBar = true,
     this.onTapCloseButton,
@@ -47,7 +47,7 @@ class PrimaryDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 閉じるボタンのTop Padding値をステータスバー考慮するかを参照し値を変更する
-    final double paddingTopValue =
+    final paddingTopValue =
         considerStatusBar ? 16 : 16 + MediaQuery.of(context).padding.top;
 
     return SafeArea(
@@ -89,7 +89,8 @@ class PrimaryDialog extends StatelessWidget {
               Align(
                 alignment: Alignment.topRight,
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, paddingTopValue, 16, 0),
+                  padding:
+                      EdgeInsets.fromLTRB(0, paddingTopValue.toDouble(), 16, 0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(closeButtonSize / 2.0),
                     child: BackdropFilter(

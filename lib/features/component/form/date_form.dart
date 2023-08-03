@@ -13,11 +13,11 @@ import '../text/tiny_headline_text.dart';
 ///
 class DateForm extends StatelessWidget {
   const DateForm({
-    Key? key,
     required this.selectingDate,
     required this.minimumDate,
     required this.maximumDate,
     required this.onConfirm,
+    Key? key,
   }) : super(key: key);
 
   /// 選択中の日付
@@ -38,7 +38,7 @@ class DateForm extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          width: 1.0,
+          width: 1,
           color: const Color(0x80E4E4E4),
         ),
       ),
@@ -62,18 +62,20 @@ class DateForm extends StatelessWidget {
         ),
         onTap: () {
           showCupertinoModalPopup(
-              context: context,
-              builder: (BuildContext context) => _DatePicker(
-                  initialDateTime: selectingDate,
-                  minimumDate: minimumDate,
-                  maximumDate: maximumDate,
-                  onClose: () {
-                    Navigator.pop(context);
-                  },
-                  onConfirm: (date) {
-                    onConfirm(date);
-                    Navigator.pop(context);
-                  }));
+            context: context,
+            builder: (BuildContext context) => _DatePicker(
+              initialDateTime: selectingDate,
+              minimumDate: minimumDate,
+              maximumDate: maximumDate,
+              onClose: () {
+                Navigator.pop(context);
+              },
+              onConfirm: (date) {
+                onConfirm(date);
+                Navigator.pop(context);
+              },
+            ),
+          );
         },
       ),
     );
@@ -81,14 +83,14 @@ class DateForm extends StatelessWidget {
 }
 
 class _DatePicker extends StatelessWidget {
-  const _DatePicker(
-      {Key? key,
-      required this.initialDateTime,
-      required this.minimumDate,
-      required this.maximumDate,
-      required this.onClose,
-      required this.onConfirm})
-      : super(key: key);
+  const _DatePicker({
+    required this.initialDateTime,
+    required this.minimumDate,
+    required this.maximumDate,
+    required this.onClose,
+    required this.onConfirm,
+    Key? key,
+  }) : super(key: key);
 
   /// 選択中の日付
   final DateTime initialDateTime;
@@ -107,7 +109,7 @@ class _DatePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateTime selectingDateTime = initialDateTime;
+    var selectingDateTime = initialDateTime;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
@@ -116,30 +118,30 @@ class _DatePicker extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 0),
           height: 44,
           color: const Color(0xFFFFFFFF),
-          child: Row(children: [
-            Material(
-              color: const Color(0xFFFFFFFF),
-              child: CloseButton(
-                color: const Color(0xFF838A68),
+          child: Row(
+            children: [
+              Material(
+                color: const Color(0xFFFFFFFF),
+                child: CloseButton(
+                  color: const Color(0xFF838A68),
+                  onPressed: onClose,
+                ),
+              ),
+              const Spacer(),
+              TextButton(
                 onPressed: () {
-                  onClose();
+                  onConfirm(selectingDateTime);
                 },
+                child: const Text(
+                  '決定',
+                ),
               ),
-            ),
-            const Spacer(),
-            TextButton(
-              onPressed: () {
-                onConfirm(selectingDateTime);
-              },
-              child: const Text(
-                '決定',
-              ),
-            ),
-          ]),
+            ],
+          ),
         ),
         Container(
           height: 216,
-          padding: const EdgeInsets.only(top: 6.0),
+          padding: const EdgeInsets.only(top: 6),
           color: const Color(0xFFE9E9E9),
           child: CupertinoDatePicker(
             initialDateTime: initialDateTime,

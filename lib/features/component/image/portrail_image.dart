@@ -1,3 +1,5 @@
+// ignore_for_file: comment_references
+
 import 'package:flutter/material.dart';
 
 import 'cached_image.dart';
@@ -53,8 +55,8 @@ class RoundedLandscapeImage extends StatelessWidget {
   ///
   const RoundedLandscapeImage.fromWidth({
     required this.imageUrl,
-    this.onTap,
     required this.width,
+    this.onTap,
     this.colorCode = 0xFF111111,
     Key? key,
   })  : height = width * _aspectRatio,
@@ -77,16 +79,16 @@ class RoundedLandscapeImage extends StatelessWidget {
   ///
   const RoundedLandscapeImage.fromWidthThumbnailAndIcon({
     required this.imageUrl,
-    this.onTap,
     required this.width,
+    this.onTap,
     this.colorCode = 0xFF111111,
     Key? key,
   })  : height = width * _aspectRatio,
         super(key: key);
 
   static const double _aspectRatio = _thumbnailHeight / _thumbnailWidth;
-  static const double _thumbnailWidth = 150.0;
-  static const double _thumbnailHeight = 84.0;
+  static const double _thumbnailWidth = 150;
+  static const double _thumbnailHeight = 84;
 
   /// タップ時処理
   ///
@@ -107,7 +109,7 @@ class RoundedLandscapeImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double thumbnailRatio = width / _thumbnailWidth;
+    final thumbnailRatio = width / _thumbnailWidth;
     return ClipRRect(
       borderRadius: BorderRadius.circular(12.0 * thumbnailRatio),
       child: GestureDetector(

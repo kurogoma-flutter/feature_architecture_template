@@ -20,10 +20,10 @@ class InputTextForm extends StatelessWidget {
   /// 1行のテキストフォーム
   factory InputTextForm({
     required GlobalKey<FormFieldState<String>> textFormKey,
+    required FormFieldValidator<String> validator,
     String initialValue = '',
     String formHintText = '入力してください',
     AutovalidateMode autoValidateMode = AutovalidateMode.onUserInteraction,
-    required FormFieldValidator<String> validator,
     TextInputType? inputType,
     int? maxLength,
     List<TextInputFormatter>? inputFormatters,
@@ -51,12 +51,12 @@ class InputTextForm extends StatelessWidget {
   /// 複数行(初期値は8行)のテキストフォーム
   factory InputTextForm.multiLine({
     required GlobalKey<FormFieldState<String>> textFormKey,
+    required FormFieldValidator<String> validator,
+    required int maxLength,
     String initialValue = '',
     String formHintText = '入力してください',
     AutovalidateMode autoValidateMode = AutovalidateMode.onUserInteraction,
-    required FormFieldValidator<String> validator,
     TextInputType? inputType,
-    required int maxLength,
     String? counterText,
     String? errorText,
     Color fillColor = const Color(0x4D000000),
@@ -77,12 +77,12 @@ class InputTextForm extends StatelessWidget {
   }
 
   const InputTextForm._({
-    Key? key,
     required this.textFormKey,
+    required this.validator,
+    Key? key,
     this.initialValue = '',
     this.formHintText = '入力してください',
     this.autoValidateMode = AutovalidateMode.onUserInteraction,
-    required this.validator,
     this.maxLines = 1,
     this.inputType,
     this.maxLength,
@@ -150,7 +150,10 @@ class InputTextForm extends StatelessWidget {
       keyboardType: inputType,
       inputFormatters: inputFormatters,
       style: const TextStyle(
-          color: Color(0xFFFFFFFF), fontSize: 14, fontWeight: FontWeight.w600),
+        color: Color(0xFFFFFFFF),
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+      ),
       autovalidateMode: autoValidateMode,
       validator: validator,
       decoration: InputDecoration(
@@ -159,14 +162,16 @@ class InputTextForm extends StatelessWidget {
         counterText: counterText,
         hintText: formHintText,
         hintStyle: const TextStyle(
-            color: Color(0x99FFFFFF),
-            fontSize: 14,
-            fontWeight: FontWeight.w600),
+          color: Color(0x99FFFFFF),
+          fontSize: 14,
+          fontWeight: FontWeight.w600,
+        ),
         counterStyle: maxLines != 1
             ? const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w300,
-                color: Color(0xFFFFFFFF))
+                color: Color(0xFFFFFFFF),
+              )
             : null,
         errorStyle: const TextStyle(
           height: 0,
@@ -175,13 +180,21 @@ class InputTextForm extends StatelessWidget {
         fillColor: fillColor,
         filled: true,
         focusedBorder: OutlineInputBorder(
-            borderRadius: _borderRadius, borderSide: _formBorder),
+          borderRadius: _borderRadius,
+          borderSide: _formBorder,
+        ),
         enabledBorder: OutlineInputBorder(
-            borderRadius: _borderRadius, borderSide: _formBorder),
+          borderRadius: _borderRadius,
+          borderSide: _formBorder,
+        ),
         errorBorder: OutlineInputBorder(
-            borderRadius: _borderRadius, borderSide: _errorBorder),
+          borderRadius: _borderRadius,
+          borderSide: _errorBorder,
+        ),
         focusedErrorBorder: OutlineInputBorder(
-            borderRadius: _borderRadius, borderSide: _errorBorder),
+          borderRadius: _borderRadius,
+          borderSide: _errorBorder,
+        ),
       ),
     );
   }

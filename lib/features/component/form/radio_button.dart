@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 ///
 class RadioButton<T> extends StatefulWidget {
   const RadioButton({
-    Key? key,
     required this.value,
     required this.groupValue,
     required this.onChanged,
+    Key? key,
   }) : super(key: key);
 
   /// ラジオボタンのラベル
@@ -26,7 +26,7 @@ class RadioButton<T> extends StatefulWidget {
 
 class _RadioButtonState<T> extends State<RadioButton<T>> {
   /// ラジオボタンのサイズ
-  double size = 24.0;
+  double size = 24;
 
   /// チェックされいているかの状態
   bool isSelected = false;
@@ -56,7 +56,7 @@ class _RadioButtonState<T> extends State<RadioButton<T>> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  width: 2.0,
+                  width: 2,
                   color: const Color(0x80E4E4E4),
                 ),
               ),

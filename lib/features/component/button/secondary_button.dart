@@ -21,8 +21,8 @@ class SecondaryButton extends StatefulWidget {
   /// [isActive] : ボタン活性化フラグ(Default: true)
   ///
   factory SecondaryButton({
-    Key? key,
     required AsyncCallback onTap,
+    Key? key,
     String text = '',
     Widget? icon,
     bool isActive = true,
@@ -52,8 +52,8 @@ class SecondaryButton extends StatefulWidget {
   /// [isActive] : ボタン活性化フラグ(Default: true)
   ///
   factory SecondaryButton.mini({
-    Key? key,
     required AsyncCallback onTap,
+    Key? key,
     String text = '',
     Widget? icon,
     bool isActive = true,
@@ -84,8 +84,8 @@ class SecondaryButton extends StatefulWidget {
   /// [isActive] : ボタン活性化フラグ(Default: true)
   ///
   factory SecondaryButton.tiny({
-    Key? key,
     required AsyncCallback onTap,
+    Key? key,
     String text = '',
     Widget? icon,
     bool isActive = true,
@@ -103,13 +103,13 @@ class SecondaryButton extends StatefulWidget {
   }
 
   const SecondaryButton._({
-    Key? key,
     required this.onTap,
+    required this.iconPosition,
+    Key? key,
     this.text = '',
     this.buttonSizeType = ButtonSizeType.normal,
     this.icon,
     this.isActive = true,
-    required this.iconPosition,
   }) : super(key: key);
 
   /// タップされた時の処理
@@ -152,23 +152,24 @@ class _SecondaryButtonState extends State<SecondaryButton> {
         : null;
 
     return ConstrainedBox(
-        constraints:
-            BoxConstraints.expand(height: widget.buttonSizeType.buttonHeight),
-        child: AbsorbPointer(
-          absorbing: !_enableTap,
-          child: widget.icon == null
-              ? ElevatedButton(
-                  onPressed: tapAction,
-                  style: _buttonStyle,
-                  child: _buttonText(),
-                )
-              : ElevatedButton.icon(
-                  onPressed: tapAction,
-                  style: _buttonStyle,
-                  icon: iconHasLeft ? widget.icon! : _buttonText(),
-                  label: iconHasLeft ? _buttonText() : widget.icon!,
-                ),
-        ));
+      constraints:
+          BoxConstraints.expand(height: widget.buttonSizeType.buttonHeight),
+      child: AbsorbPointer(
+        absorbing: !_enableTap,
+        child: widget.icon == null
+            ? ElevatedButton(
+                onPressed: tapAction,
+                style: _buttonStyle,
+                child: _buttonText(),
+              )
+            : ElevatedButton.icon(
+                onPressed: tapAction,
+                style: _buttonStyle,
+                icon: iconHasLeft ? widget.icon! : _buttonText(),
+                label: iconHasLeft ? _buttonText() : widget.icon!,
+              ),
+      ),
+    );
   }
 
   Text _buttonText() {
@@ -180,10 +181,11 @@ class _SecondaryButtonState extends State<SecondaryButton> {
   }
 
   TextStyle get _textStyle => TextStyle(
-      color:
-          widget.isActive ? const Color(0xFF000000) : const Color(0xFFFFFFFF),
-      fontSize: widget.buttonSizeType.fontSize,
-      fontWeight: widget.buttonSizeType.fontWeight);
+        color:
+            widget.isActive ? const Color(0xFF000000) : const Color(0xFFFFFFFF),
+        fontSize: widget.buttonSizeType.fontSize,
+        fontWeight: widget.buttonSizeType.fontWeight,
+      );
 
   ButtonStyle get _buttonStyle {
     return ButtonStyle(
@@ -195,8 +197,9 @@ class _SecondaryButtonState extends State<SecondaryButton> {
       }),
       shape: ButtonStyleButton.allOrNull<OutlinedBorder>(
         RoundedRectangleBorder(
-            borderRadius:
-                BorderRadius.circular(widget.buttonSizeType.buttonRadius)),
+          borderRadius:
+              BorderRadius.circular(widget.buttonSizeType.buttonRadius),
+        ),
       ),
     );
   }

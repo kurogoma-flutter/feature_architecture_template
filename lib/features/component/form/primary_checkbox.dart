@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 ///
 class PrimaryCheckBox extends StatefulWidget {
   const PrimaryCheckBox({
-    Key? key,
     required this.onTap,
     required this.text,
     required this.status,
+    Key? key,
   }) : super(key: key);
 
   /// タップされた時の処理
@@ -29,10 +29,10 @@ class _PrimaryCheckBoxState extends State<PrimaryCheckBox> {
   bool isChecked = false;
 
   /// アニメーションの不透明度
-  double opacityLevel = 0.0;
+  double opacityLevel = 0;
 
   /// チェックボックスの枠
-  BorderRadius get _checkboxBorderRadius => BorderRadius.circular(8.0);
+  BorderRadius get _checkboxBorderRadius => BorderRadius.circular(8);
 
   @override
   void initState() {
@@ -72,7 +72,7 @@ class _PrimaryCheckBoxState extends State<PrimaryCheckBox> {
                       decoration: BoxDecoration(
                         borderRadius: _checkboxBorderRadius,
                         border: Border.all(
-                          width: 2.0,
+                          width: 2,
                           color: const Color(0x80E4E4E4),
                         ),
                       ),

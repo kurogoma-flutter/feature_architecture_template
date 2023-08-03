@@ -9,9 +9,9 @@ import 'text/tiny_headline_text.dart';
 ///
 class AccordionPanel extends StatefulWidget {
   const AccordionPanel({
-    Key? key,
     required this.headlineText,
     required this.child,
+    Key? key,
     this.defaultExpanded = false,
   }) : super(key: key);
 
@@ -36,7 +36,7 @@ class _AccordionPanelState extends State<AccordionPanel>
   /// 右の矢印アイコンのAnimationController
   late AnimationController rotationController;
 
-  static const double iconSize = 16.0;
+  static const double iconSize = 16;
 
   static const Duration animationDuration = Duration(milliseconds: 200);
 
@@ -59,14 +59,14 @@ class _AccordionPanelState extends State<AccordionPanel>
           Container(
             height: 44,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(8),
               border: Border.all(
-                width: 1.0,
+                width: 1,
                 color: const Color(0x80E4E4E4),
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12.0),
+              padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -86,8 +86,8 @@ class _AccordionPanelState extends State<AccordionPanel>
                       );
                     },
                     child: widget.defaultExpanded
-                        ? const Icon(Icons.expand_more)
-                        : const Icon(Icons.expand_less),
+                        ? const Icon(Icons.expand_more, size: iconSize)
+                        : const Icon(Icons.expand_less, size: iconSize),
                   ),
                 ],
               ),
@@ -99,9 +99,13 @@ class _AccordionPanelState extends State<AccordionPanel>
             switchOutCurve: Curves.easeIn,
             child: isExpanded
                 ? Padding(
-                    padding:
-                        const EdgeInsets.only(top: 8.0, right: 8.0, left: 8.0),
-                    child: widget.child)
+                    padding: const EdgeInsets.only(
+                      top: 8,
+                      right: 8,
+                      left: 8,
+                    ),
+                    child: widget.child,
+                  )
                 : const SizedBox.shrink(),
           ),
         ],

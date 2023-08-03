@@ -8,7 +8,11 @@ enum ButtonSizeType {
   ;
 
   const ButtonSizeType(
-      this.buttonHeight, this.fontSize, this.fontWeight, this.buttonRadius);
+    this.buttonHeight,
+    this.fontSize,
+    this.fontWeight,
+    this.buttonRadius,
+  );
 
   final double buttonHeight;
 

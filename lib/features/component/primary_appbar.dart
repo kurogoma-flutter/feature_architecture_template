@@ -18,7 +18,7 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? firstIcon;
   final Widget? secondIcon;
 
-  double get spaceSize => 4.0;
+  double get spaceSize => 4;
 
   @override
   Widget build(BuildContext context) {

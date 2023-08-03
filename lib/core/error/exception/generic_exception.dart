@@ -1,3 +1,5 @@
+// ignore_for_file: comment_references
+
 ///
 /// # 異常系規定クラス
 ///
@@ -32,6 +34,7 @@
 /// }
 /// ```
 ///
+
 abstract class GenericException implements Exception {
   const GenericException(this.errorCode, {this.info});
 

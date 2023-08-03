@@ -21,8 +21,8 @@ class PrimaryButton extends StatefulWidget {
   /// [isActive] : ボタン活性化フラグ(Default: true)
   ///
   factory PrimaryButton({
-    Key? key,
     required AsyncCallback onTap,
+    Key? key,
     String text = '',
     Widget? icon,
     bool isActive = true,
@@ -52,8 +52,8 @@ class PrimaryButton extends StatefulWidget {
   /// [isActive] : ボタン活性化フラグ(Default: true)
   ///
   factory PrimaryButton.mini({
-    Key? key,
     required AsyncCallback onTap,
+    Key? key,
     String text = '',
     Widget? icon,
     bool isActive = true,
@@ -84,8 +84,8 @@ class PrimaryButton extends StatefulWidget {
   /// [isActive] : ボタン活性化フラグ(Default: true)
   ///
   factory PrimaryButton.tiny({
-    Key? key,
     required AsyncCallback onTap,
+    Key? key,
     String text = '',
     Widget? icon,
     IconPosition iconPosition = IconPosition.left,
@@ -103,13 +103,13 @@ class PrimaryButton extends StatefulWidget {
   }
 
   const PrimaryButton._({
-    Key? key,
     required this.onTap,
+    required this.iconPosition,
+    Key? key,
     this.buttonSizeType = ButtonSizeType.normal,
     this.text = '',
     this.icon,
     this.isActive = true,
-    required this.iconPosition,
   }) : super(key: key);
 
   /// タップされた時の処理
@@ -170,7 +170,8 @@ class _PrimaryButtonState extends State<PrimaryButton> {
               ? ElevatedButton(
                   style: _buttonStyle(),
                   onPressed: tapAction,
-                  child: _buttonText())
+                  child: _buttonText(),
+                )
               : ElevatedButton.icon(
                   style: _buttonStyle(),
                   onPressed: tapAction,
@@ -205,12 +206,13 @@ class _PrimaryButtonState extends State<PrimaryButton> {
     );
   }
 
-  BorderRadius get _buttonBorderRadius => BorderRadius.circular(22.0);
+  BorderRadius get _buttonBorderRadius => BorderRadius.circular(22);
 
   TextStyle get _textStyle => TextStyle(
-      color: const Color(0xFFFFFFFF),
-      fontSize: widget.buttonSizeType.fontSize,
-      fontWeight: widget.buttonSizeType.fontWeight);
+        color: const Color(0xFFFFFFFF),
+        fontSize: widget.buttonSizeType.fontSize,
+        fontWeight: widget.buttonSizeType.fontWeight,
+      );
 
   /// [_enableTap]の値を変更する
   void _setEnableTap(bool enableTap) => setState(() {
