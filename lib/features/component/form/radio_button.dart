@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../color.dart';
+
 ///
 /// ラジオボタン
 ///
@@ -57,7 +59,7 @@ class _RadioButtonState<T> extends State<RadioButton<T>> {
                 shape: BoxShape.circle,
                 border: Border.all(
                   width: 2,
-                  color: const Color(0x80E4E4E4),
+                  color: CustomColor.lightBlur,
                 ),
               ),
             ),
@@ -70,8 +72,8 @@ class _RadioButtonState<T> extends State<RadioButton<T>> {
                         begin: FractionalOffset.topLeft,
                         end: FractionalOffset.bottomRight,
                         colors: [
-                          Color(0xFFFF903C),
-                          Color(0xFFFF0576),
+                          CustomColor.orange,
+                          CustomColor.pink,
                         ],
                       ),
                     )
@@ -83,7 +85,7 @@ class _RadioButtonState<T> extends State<RadioButton<T>> {
                   decoration: isSelected
                       ? const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color(0xFFFFFFFF),
+                          color: CustomColor.white,
                         )
                       : null,
                 ),

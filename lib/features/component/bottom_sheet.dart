@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../core/router/app_router.dart';
+import 'color.dart';
 
 ///
 /// 共通ボトムシートWidget
@@ -30,19 +31,22 @@ class PrimaryBottomSheet extends StatelessWidget {
   static const headerSideSpace = 16.0;
 
   /// 装飾コンテナの色
-  static const Color backgroundColorBegin = Color(0xFFE528CF);
-  static const Color backgroundColorEnd = Color(0xFFFE8B29);
+  static const Color backgroundColorBegin = CustomColor.pink;
+  static const Color backgroundColorEnd = CustomColor.orange;
 
   /// 装飾コンテナのサイズ
   static const borderHeight = 4.0;
   static const borderWidth = 295.0;
 
   /// タイトルテキストのテキストスタイル
-  static const titleStyle =
-      TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white);
+  static const titleStyle = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: CustomColor.white,
+  );
 
   /// モーダルマスクカラー
-  static const Color backGroundMaskColor = Color(0x20FFFFFF);
+  static const Color backGroundMaskColor = CustomColor.darkBlur;
 
   /// すりガラスフィルター
   ImageFilter get _filter => ImageFilter.blur(sigmaX: 30, sigmaY: 30);

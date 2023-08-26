@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../color.dart';
+
 class EmailTextForm extends StatelessWidget {
   const EmailTextForm({
     required this.globalKey,
@@ -26,20 +28,20 @@ class EmailTextForm extends StatelessWidget {
       },
       decoration: InputDecoration(
         hintText: hint,
-        hintStyle: const TextStyle(fontSize: 12, color: Colors.blue),
-        fillColor: Colors.blue[100],
+        hintStyle: const TextStyle(fontSize: 12, color: CustomColor.blue),
+        fillColor: CustomColor.lightBlue,
         filled: true,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(
-            color: Colors.blue,
+            color: CustomColor.blue,
             width: 2,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(
-            color: Colors.blue[100]!,
+          borderSide: const BorderSide(
+            color: CustomColor.lightBlue,
             width: 1,
           ),
         ),

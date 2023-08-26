@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../color.dart';
+
 ///
 /// 共通チェックボックスWidget
 ///
@@ -73,7 +75,7 @@ class _PrimaryCheckBoxState extends State<PrimaryCheckBox> {
                         borderRadius: _checkboxBorderRadius,
                         border: Border.all(
                           width: 2,
-                          color: const Color(0x80E4E4E4),
+                          color: CustomColor.lightBlur,
                         ),
                       ),
                     ),
@@ -89,8 +91,8 @@ class _PrimaryCheckBoxState extends State<PrimaryCheckBox> {
                             begin: FractionalOffset.topLeft,
                             end: FractionalOffset.bottomRight,
                             colors: [
-                              Color(0xFFE528CF),
-                              Color(0xFFFE8B29),
+                              CustomColor.pink,
+                              CustomColor.orange,
                             ],
                           ),
                         ),
@@ -116,7 +118,7 @@ class _PrimaryCheckBoxState extends State<PrimaryCheckBox> {
               style: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w300,
-                color: Color(0xFFFFFFFF),
+                color: CustomColor.white,
               ),
             ),
           ],

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../color.dart';
+
 ///
 /// 共通トグルスイッチWidget_デフォルトサイズ
 ///
@@ -58,14 +60,14 @@ class _ToggleSwitchDefaultState extends State<ToggleSwitchDefault>
                   begin: FractionalOffset.topLeft,
                   end: FractionalOffset.bottomRight,
                   colors: [
-                    Color(0xFFFF903C),
-                    Color(0xFFFF0576),
+                    CustomColor.orange,
+                    CustomColor.pink,
                   ],
                 ),
               )
             : BoxDecoration(
                 borderRadius: BorderRadius.circular(height / 2),
-                color: const Color(0xFFAEAEAE),
+                color: CustomColor.lightGrey,
               ),
         child: Padding(
           padding: const EdgeInsets.all(2),
@@ -79,7 +81,7 @@ class _ToggleSwitchDefaultState extends State<ToggleSwitchDefault>
               height: 28,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xFFFFFFFF),
+                color: CustomColor.white,
               ),
             ),
           ),

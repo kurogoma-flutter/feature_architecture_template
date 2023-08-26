@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../core/logger/logger.dart';
-import '../../core/router/app_router.dart';
-import '../home/home_page.dart';
+import '../../../core/logger/logger.dart';
+import '../../../core/router/app_router.dart';
+import '../../home/home_page.dart';
+import '../color.dart';
 
 /// try-catchで捌ききれなかったエラーを表示するダイアログ
 class UnexpectedErrorDialog extends HookConsumerWidget {
@@ -29,7 +30,7 @@ class UnexpectedErrorDialog extends HookConsumerWidget {
         children: [
           const Icon(
             Icons.error_outline,
-            color: Colors.red,
+            color: CustomColor.red,
             size: 50,
           ),
           const SizedBox(height: 10),

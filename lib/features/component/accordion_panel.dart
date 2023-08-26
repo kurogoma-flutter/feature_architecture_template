@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import 'color.dart';
 import 'text/tiny_headline_text.dart';
 
 ///
@@ -62,7 +63,7 @@ class _AccordionPanelState extends State<AccordionPanel>
               borderRadius: BorderRadius.circular(8),
               border: Border.all(
                 width: 1,
-                color: const Color(0x80E4E4E4),
+                color: CustomColor.lightGrey,
               ),
             ),
             child: Padding(

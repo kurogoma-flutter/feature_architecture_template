@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'application.dart';
-import 'features/dialogs/unexpected_error_dialog.dart';
+import 'features/component/dialog/unexpected_error_dialog.dart';
 import 'initialize.dart';
 
 Future<void> main() async {

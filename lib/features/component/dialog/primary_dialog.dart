@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../../core/router/app_router.dart';
+import '../color.dart';
 
 ///
 /// ダイアログ
@@ -36,9 +37,9 @@ class PrimaryDialog extends StatelessWidget {
   static const borderRadius = 16.0;
   static const borderWidth = 1.0;
 
-  static const backgroundColor = Color(0xBF000000);
-  static const dialogColor = Color(0x20FFFFFF);
-  static const borderColor = Color(0xFF707070);
+  static const backgroundColor = CustomColor.black;
+  static const dialogColor = CustomColor.darkBlur;
+  static const borderColor = CustomColor.lightGrey;
 
   static const closeButtonSize = 40.0;
 

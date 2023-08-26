@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../color.dart';
 import 'button_options.dart';
 
 ///
@@ -137,9 +138,9 @@ class PrimaryButton extends StatefulWidget {
 class _PrimaryButtonState extends State<PrimaryButton> {
   bool _enableTap = true;
 
-  static const Color backgroundColorBegin = Color(0xFFFF903C);
+  static const Color backgroundColorBegin = CustomColor.orange;
 
-  static const Color backgroundColorEnd = Color(0xFFFF0576);
+  static const Color backgroundColorEnd = CustomColor.pink;
 
   @override
   Widget build(BuildContext context) {
@@ -195,9 +196,9 @@ class _PrimaryButtonState extends State<PrimaryButton> {
     return ButtonStyle(
       backgroundColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.disabled)) {
-          return const Color(0xFFBABABA);
+          return CustomColor.lightGrey;
         }
-        return Colors.transparent;
+        return CustomColor.transparent;
       }),
       elevation: MaterialStateProperty.all(0),
       shape: ButtonStyleButton.allOrNull<OutlinedBorder>(
@@ -209,7 +210,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
   BorderRadius get _buttonBorderRadius => BorderRadius.circular(22);
 
   TextStyle get _textStyle => TextStyle(
-        color: const Color(0xFFFFFFFF),
+        color: CustomColor.white,
         fontSize: widget.buttonSizeType.fontSize,
         fontWeight: widget.buttonSizeType.fontWeight,
       );

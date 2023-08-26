@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'color.dart';
 import 'text/middle_headline_text.dart';
 
 class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -49,7 +50,7 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       centerTitle: true,
-      backgroundColor: const Color(0xFF000000),
+      backgroundColor: CustomColor.black,
       automaticallyImplyLeading: false,
       leading: leading,
       actions: [

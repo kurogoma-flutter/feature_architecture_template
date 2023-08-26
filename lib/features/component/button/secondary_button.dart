@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../color.dart';
 import 'button_options.dart';
 
 ///
@@ -137,7 +138,7 @@ class SecondaryButton extends StatefulWidget {
 class _SecondaryButtonState extends State<SecondaryButton> {
   bool _enableTap = true;
 
-  static const backgroundColor = Color(0xFFFFFFFF);
+  static const backgroundColor = CustomColor.white;
 
   @override
   Widget build(BuildContext context) {
@@ -181,8 +182,7 @@ class _SecondaryButtonState extends State<SecondaryButton> {
   }
 
   TextStyle get _textStyle => TextStyle(
-        color:
-            widget.isActive ? const Color(0xFF000000) : const Color(0xFFFFFFFF),
+        color: widget.isActive ? CustomColor.black : CustomColor.white,
         fontSize: widget.buttonSizeType.fontSize,
         fontWeight: widget.buttonSizeType.fontWeight,
       );
@@ -191,7 +191,7 @@ class _SecondaryButtonState extends State<SecondaryButton> {
     return ButtonStyle(
       backgroundColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.disabled)) {
-          return const Color(0xFFBABABA);
+          return CustomColor.lightGrey;
         }
         return backgroundColor;
       }),

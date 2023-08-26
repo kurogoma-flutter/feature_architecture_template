@@ -2,6 +2,8 @@
 
 import 'package:flutter/widgets.dart';
 
+import '../color.dart';
+
 ///
 /// テキスト大
 /// フォントサイズ：16
@@ -18,7 +20,7 @@ class LargeText extends StatelessWidget {
     this.maxLine,
     this.textOverflow = TextOverflow.ellipsis,
     this.textAlign,
-  })  : _textColor = textColor ?? const Color(0xFFFFFFFF),
+  })  : _textColor = textColor ?? CustomColor.white,
         super(key: key);
 
   /// 表示テキスト

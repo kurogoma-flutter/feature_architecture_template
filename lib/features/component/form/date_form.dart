@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import '../color.dart';
 import '../text/tiny_headline_text.dart';
 
 ///
@@ -39,7 +40,7 @@ class DateForm extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
           width: 1,
-          color: const Color(0x80E4E4E4),
+          color: CustomColor.lightBlur,
         ),
       ),
       height: 44,
@@ -117,13 +118,13 @@ class _DatePicker extends StatelessWidget {
         Container(
           padding: const EdgeInsets.only(bottom: 0),
           height: 44,
-          color: const Color(0xFFFFFFFF),
+          color: CustomColor.white,
           child: Row(
             children: [
               Material(
-                color: const Color(0xFFFFFFFF),
+                color: CustomColor.white,
                 child: CloseButton(
-                  color: const Color(0xFF838A68),
+                  color: CustomColor.blueGrey,
                   onPressed: onClose,
                 ),
               ),
@@ -142,7 +143,7 @@ class _DatePicker extends StatelessWidget {
         Container(
           height: 216,
           padding: const EdgeInsets.only(top: 6),
-          color: const Color(0xFFE9E9E9),
+          color: CustomColor.white,
           child: CupertinoDatePicker(
             initialDateTime: initialDateTime,
             minimumDate: minimumDate,

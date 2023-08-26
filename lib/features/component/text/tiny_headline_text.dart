@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../color.dart';
+
 class TinyHeadLineText extends StatelessWidget {
   const TinyHeadLineText(
     this.text, {
@@ -7,7 +9,7 @@ class TinyHeadLineText extends StatelessWidget {
     Color? textColor,
     this.maxLine,
     this.textOverflow = TextOverflow.ellipsis,
-  })  : _textColor = textColor ?? const Color(0xFFFFFFFF),
+  })  : _textColor = textColor ?? CustomColor.white,
         super(key: key);
 
   /// 表示テキスト

@@ -2,6 +2,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../color.dart';
+
 class TextWithUrl extends StatelessWidget {
   const TextWithUrl({
     required this.text,
@@ -71,14 +73,13 @@ class CustomTextSpan {
 
   final String text;
   static double fontSize = 14;
-  static Color color = const Color(0xff111111);
 
   static TextSpan urlTextSpan(String text) {
     return TextSpan(
       text: text,
       style: TextStyle(
         fontSize: fontSize,
-        color: color,
+        color: CustomColor.black,
         decoration: TextDecoration.underline,
       ),
       recognizer: TapGestureRecognizer()
@@ -93,7 +94,7 @@ class CustomTextSpan {
       text: text,
       style: TextStyle(
         fontSize: fontSize,
-        color: color,
+        color: CustomColor.black,
       ),
     );
   }

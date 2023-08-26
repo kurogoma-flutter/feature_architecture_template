@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'core/router/router.dart';
+import 'features/component/color.dart';
 
 class Application extends StatelessWidget {
   const Application({super.key});
@@ -10,11 +11,11 @@ class Application extends StatelessWidget {
     return MaterialApp.router(
       theme: ThemeData(
         useMaterial3: true,
-        primaryColor: Colors.white,
+        primaryColor: CustomColor.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        canvasColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        splashColor: Colors.transparent,
+        canvasColor: CustomColor.transparent,
+        highlightColor: CustomColor.transparent,
+        splashColor: CustomColor.transparent,
         fontFamily: 'LINE_Seed_JP',
       ),
       darkTheme: ThemeData.dark(),
