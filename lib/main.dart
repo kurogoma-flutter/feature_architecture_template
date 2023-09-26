@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -19,5 +20,21 @@ Future<void> main() async {
     );
   };
   // アプリ実行
-  runApp(const ProviderScope(child: Application()));
+  runApp(
+    DevicePreview(
+      enabled: false, // 一旦無効化
+      availableLocales: const [
+        Locale('en', 'US'),
+        Locale('ja', 'JP'),
+      ],
+      builder: (context) => const ProviderScope(
+        child: Application(),
+      ),
+      data: DevicePreviewData(
+        deviceIdentifier: Devices.ios.iPhone13.toString(),
+        isFrameVisible: false,
+        locale: 'ja_JP',
+      ),
+    ),
+  );
 }
